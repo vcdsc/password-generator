@@ -194,6 +194,20 @@ function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+/*
+Function to further randomize the password we just generated.
+*/
+function randomizePassword(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var currentCharacter = array[i];
+    array[i] = array[j];
+    array[j] = currentCharacter;
+  }
+
+  return array;
+}
+
 // Function to generate password with user input
 function generatePassword(userOptions) {
   if (userOptions === null) {
@@ -243,7 +257,7 @@ function generatePassword(userOptions) {
     );
     return null;
   } else {
-    return randomPassword.join("");
+    return randomizePassword(randomPassword).join("");
   }
 }
 
