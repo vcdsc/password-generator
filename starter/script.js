@@ -153,12 +153,12 @@ function getPasswordOptions() {
     "How long do you wish your new password to be? Please select a number between 10 and 64."
   );
 
-  console.log(
-    "lengthInput ===>",
-    lengthInput,
-    "\ntypeof lengthInput ===>",
-    typeof lengthInput
-  );
+  // console.log(
+  //   "lengthInput ===>",
+  //   lengthInput,
+  //   "\ntypeof lengthInput ===>",
+  //   typeof lengthInput
+  // );
 
   var validation = validatePasswordLength(lengthInput);
 
@@ -194,8 +194,8 @@ function getRandom(arr) {
 }
 
 // Function to generate password with user input
-function generatePassword(userChoices) {
-  if (userChoices === null) {
+function generatePassword(userOptions) {
+  if (userOptions === null) {
     return "";
   }
 
@@ -203,21 +203,21 @@ function generatePassword(userChoices) {
 
   var randomPassword = [];
 
-  if (userChoices["lowercase"]) {
+  if (userOptions["lowercase"]) {
     randomPassword.push(getRandom(lowerCasedCharacters));
     selectedCharacterTypes =
       selectedCharacterTypes.concat(lowerCasedCharacters);
   }
-  if (userChoices["uppercase"]) {
+  if (userOptions["uppercase"]) {
     randomPassword.push(getRandom(upperCasedCharacters));
     selectedCharacterTypes =
       selectedCharacterTypes.concat(upperCasedCharacters);
   }
-  if (userChoices["numeric"]) {
+  if (userOptions["numeric"]) {
     randomPassword.push(getRandom(numericCharacters));
     selectedCharacterTypes = selectedCharacterTypes.concat(numericCharacters);
   }
-  if (userChoices["specialChars"]) {
+  if (userOptions["specialChars"]) {
     randomPassword.push(getRandom(specialCharacters));
     selectedCharacterTypes = selectedCharacterTypes.concat(specialCharacters);
   }
@@ -228,6 +228,22 @@ function generatePassword(userChoices) {
     "\nrandomPassword",
     randomPassword
   );
+
+  for (var i = randomPassword.length; i < userOptions["length"]; i++) {
+    randomPassword.push(getRandom(selectedCharacterTypes));
+  }
+
+  /*
+  If selectedCharacterTypes is empty, then no character type has been selected, which means no password can be generated.
+  */
+  if (!selectedCharacterTypes.length) {
+    alert(
+      "Unable to generate password. At least one character type must be selected."
+    );
+    return null;
+  } else {
+    return randomPassword.join("");
+  }
 }
 
 // Get references to the #generate element
