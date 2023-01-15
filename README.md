@@ -12,7 +12,7 @@ When the "Generate Password" button is clicked, a password must be generated.
 
 <br>
 
-<img src="./assets/generate.png" width="60%" height="30%">
+<img src="./assets/generate.png" width="30%" height="20%">
 
 <br>
 
@@ -30,7 +30,7 @@ User should should be prompted to enter their desired password length:
 
 <br>
 
-<img src="./assets/length.png" width="60%" height="30%">
+<img src="./assets/length.png" width="30%" height="20%">
 
 <br>
 
@@ -38,7 +38,7 @@ User should be able to confirm which password options (type of characters) they 
 
 <br>
 
-<img src="./assets/options_lowercase.png" width="60%" height="30%">
+<img src="./assets/options_lowercase.png" width="30%" height="20%">
 
 <br>
 
@@ -46,13 +46,13 @@ Once these have been captured and validated for correctness, a random password s
 
 <br>
 
-<img src="./assets/result.png" width="60%" height="30%">
+<img src="./assets/result.png" width="30%" height="20%">
 
 <br>
 
 ## GitHub Pages
 
-Deployed version of this project can be seen [here](https://vcdsc.github.io/password-generator/starter/index.html).
+Deployed version of this project can be seen [here](https://vcdsc.github.io/password-generator).
 
 ## License
 
