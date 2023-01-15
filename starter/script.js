@@ -109,10 +109,40 @@ var upperCasedCharacters = [
 
 */
 
+/*
+Function to validate if the value the user is entering for password length is 1) valid and 2) not too short or too long. Best to do this first because if the password length is not the right input or size, no use in moving forward for the other options.
+*/
+function validatePasswordLength(userInput) {
+  /*
+
+  What we know about the value entered in the prompt:
+
+  - If no password length is entered, clicking "Cancel" on the prompt window returns null but clicking "OK" returns an empty string.
+  - Length needs to be a number between 10 and 64.
+
+  */
+
+  if (userInput === null || userInput === "") {
+    return "Password must have a length between 10 and 64 characters. Please select a number that falls within this range.";
+  }
+
+  var inputNumber = Number(userInput);
+
+  return null;
+}
+
 // Function to prompt user for password options
 function getPasswordOptions() {
+  var userChoices = {
+    length: 0,
+    lowercase: false,
+    uppercase: false,
+    numeric: false,
+    specialChars: false,
+  };
+
   var lengthInput = prompt(
-    "How long to do wish your new password to be? Please select a number between 10 and 64."
+    "How long do you wish your new password to be? Please select a number between 10 and 64."
   );
 
   console.log(
@@ -121,6 +151,23 @@ function getPasswordOptions() {
     "\ntypeof lengthInput ===>",
     typeof lengthInput
   );
+
+  userChoices["length"] = Number(lengthInput);
+  userChoices["lowercase"] = confirm(
+    "Do you want to include lowercase characters?"
+  );
+  userChoices["uppercase"] = confirm(
+    "Do you want to include uppercase characters?"
+  );
+  userChoices["numeric"] = confirm(
+    "Do you want to include numeric characters?"
+  );
+  userChoices["specialChars"] = confirm(
+    "Do you want to include special characters?"
+  );
+
+  console.log("userChoices ===>", userChoices);
+  return userChoices;
 }
 
 // Function for getting a random element from an array
@@ -132,8 +179,10 @@ function getRandom(arr) {
 }
 
 // Function to generate password with user input
-function generatePassword(userInput) {
-  return;
+function generatePassword(userChoices) {
+  if (userChoices === null) {
+    return "";
+  }
 }
 
 // Get references to the #generate element
