@@ -198,6 +198,36 @@ function generatePassword(userChoices) {
   if (userChoices === null) {
     return "";
   }
+
+  var selectedCharacterTypes = [];
+
+  var randomPassword = [];
+
+  if (userChoices["lowercase"]) {
+    randomPassword.push(getRandom(lowerCasedCharacters));
+    selectedCharacterTypes =
+      selectedCharacterTypes.concat(lowerCasedCharacters);
+  }
+  if (userChoices["uppercase"]) {
+    randomPassword.push(getRandom(upperCasedCharacters));
+    selectedCharacterTypes =
+      selectedCharacterTypes.concat(upperCasedCharacters);
+  }
+  if (userChoices["numeric"]) {
+    randomPassword.push(getRandom(numericCharacters));
+    selectedCharacterTypes = selectedCharacterTypes.concat(numericCharacters);
+  }
+  if (userChoices["specialChars"]) {
+    randomPassword.push(getRandom(specialCharacters));
+    selectedCharacterTypes = selectedCharacterTypes.concat(specialCharacters);
+  }
+
+  console.log(
+    "selectedCharacterTypes",
+    selectedCharacterTypes,
+    "\nrandomPassword",
+    randomPassword
+  );
 }
 
 // Get references to the #generate element
