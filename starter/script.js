@@ -129,7 +129,7 @@ function validatePasswordLength(userInput) {
   var inputNumber = Number(userInput);
 
   if (isNaN(inputNumber) || !inputNumber) {
-    return "Password needs to be a number between 10 and 64. Nothing other than numbers is allowed.";
+    return "Password length needs to be a number between 10 and 64. Nothing other than numbers is allowed for length.";
   } else if (inputNumber < 10) {
     return "Your selected password length is too low, password needs to be at least 10 characters long (and at most 64).";
   } else if (inputNumber > 64) {
