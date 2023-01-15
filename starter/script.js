@@ -128,6 +128,14 @@ function validatePasswordLength(userInput) {
 
   var inputNumber = Number(userInput);
 
+  if (isNaN(inputNumber)) {
+    return "Password needs to be a number between 10 and 64. Nothing other than numbers is allowed.";
+  } else if (inputNumber < 10) {
+    return "Your selected password length is too low, password needs to be at least 10 characters long (and at most 64).";
+  } else if (inputNumber > 64) {
+    return "Your selected password length is too high, password needs to be at most 64 characters long (and at least 10).";
+  }
+
   return null;
 }
 
@@ -151,6 +159,13 @@ function getPasswordOptions() {
     "\ntypeof lengthInput ===>",
     typeof lengthInput
   );
+
+  var validation = validatePasswordLength(lengthInput);
+
+  if (validation !== null) {
+    alert(validation);
+    return null;
+  }
 
   userChoices["length"] = Number(lengthInput);
   userChoices["lowercase"] = confirm(
