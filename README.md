@@ -52,7 +52,7 @@ Once these have been captured and validated for correctness, a random password s
 
 ## GitHub Pages
 
-Deployed version of this project can be seen [here](https://vcdsc.github.io/password-generator/).
+Deployed version of this project can be seen [here](https://vcdsc.github.io/password-generator/starter/index.html).
 
 ## License
 
