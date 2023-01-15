@@ -153,13 +153,13 @@ function getPasswordOptions() {
     "How long do you wish your new password to be? Please select a number between 10 and 64."
   );
 
-  console.log(
-    "lengthInput ===>",
-    lengthInput,
-    `${lengthInput}`,
-    "\ntypeof lengthInput ===>",
-    typeof lengthInput
-  );
+  // console.log(
+  //   "lengthInput ===>",
+  //   lengthInput,
+  //   `${lengthInput}`,
+  //   "\ntypeof lengthInput ===>",
+  //   typeof lengthInput
+  // );
 
   var validation = validatePasswordLength(lengthInput);
 
@@ -182,7 +182,7 @@ function getPasswordOptions() {
     "Do you want to include special characters?"
   );
 
-  console.log("userChoices ===>", userChoices);
+  // console.log("userChoices ===>", userChoices);
   return userChoices;
 }
 
@@ -237,12 +237,12 @@ function generatePassword(userOptions) {
     selectedCharacterTypes = selectedCharacterTypes.concat(specialCharacters);
   }
 
-  console.log(
-    "selectedCharacterTypes",
-    selectedCharacterTypes,
-    "\nrandomPassword",
-    randomPassword
-  );
+  // console.log(
+  //   "selectedCharacterTypes",
+  //   selectedCharacterTypes,
+  //   "\nrandomPassword",
+  //   randomPassword
+  // );
 
   for (var i = randomPassword.length; i < userOptions["length"]; i++) {
     randomPassword.push(getRandom(selectedCharacterTypes));
