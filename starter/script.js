@@ -124,7 +124,12 @@ function getPasswordOptions() {
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {}
+function getRandom(arr) {
+  /*
+  Once the user has selected which type of characters they want to include in their password, we will use this to randomly select characters from those arrays.
+  */
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 // Function to generate password with user input
 function generatePassword(userInput) {
