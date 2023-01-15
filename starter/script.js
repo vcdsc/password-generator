@@ -128,7 +128,7 @@ function validatePasswordLength(userInput) {
 
   var inputNumber = Number(userInput);
 
-  if (isNaN(inputNumber)) {
+  if (isNaN(inputNumber) || !inputNumber) {
     return "Password needs to be a number between 10 and 64. Nothing other than numbers is allowed.";
   } else if (inputNumber < 10) {
     return "Your selected password length is too low, password needs to be at least 10 characters long (and at most 64).";
@@ -153,12 +153,13 @@ function getPasswordOptions() {
     "How long do you wish your new password to be? Please select a number between 10 and 64."
   );
 
-  // console.log(
-  //   "lengthInput ===>",
-  //   lengthInput,
-  //   "\ntypeof lengthInput ===>",
-  //   typeof lengthInput
-  // );
+  console.log(
+    "lengthInput ===>",
+    lengthInput,
+    `${lengthInput}`,
+    "\ntypeof lengthInput ===>",
+    typeof lengthInput
+  );
 
   var validation = validatePasswordLength(lengthInput);
 
